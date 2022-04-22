@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    tools:context=".SecondFragment">
+
+    <TextView
+        android:id="@+id/textview_second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24dp"
+        android:text="Supported features:
+
+        \n\n
+
+        ( ) - grouping
+
+        \n
+
+        | - alternation
+
+        \n
+
+        . - any character
+
+        \n
+
+        [ ] - set of characters
+
+        \n
+
+        * - zero or infinity repeat
+
+        \n
+
+        + - one or more repeat
+
+        \n
+
+        ? - one or none repeat
+
+        \n
+
+        ~ - complement
+
+        \n
+
+        &amp; - intersection
+
+        \n
+
+        - - subtraction
+"
+    />
+
+    <!--
+    <Button
+        android:id="@+id/button_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/previous"
+        android:layout_gravity="center"
+    />
+    -->
+<!--
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-8489476546541939/9417871582"
+        >
+    </com.google.android.gms.ads.AdView>-->
+    <LinearLayout
+        android:id="@+id/adLayout2"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+    </LinearLayout>
+</LinearLayout>
