@@ -12,12 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+//import com.google.android.gms.ads.AdRequest;
+//import com.google.android.gms.ads.AdSize;
+//import com.google.android.gms.ads.AdView;
+//import com.google.android.gms.ads.MobileAds;
+//import com.google.android.gms.ads.initialization.InitializationStatus;
+//import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.msdevelopers.regexextmobile.databinding.FragmentFirstBinding;
 import com.regexplus.automaton.dfa.DeterministicAutomaton;
 import com.regexplus.automaton.model.Automaton;
@@ -30,7 +30,7 @@ public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
 
-    private AdView mAdView;
+    //private AdView mAdView;
 
     @Override
     public View onCreateView(
@@ -40,6 +40,7 @@ public class FirstFragment extends Fragment {
 
         binding = FragmentFirstBinding.inflate(inflater, container, false);
 
+        /*
         mAdView = new AdView(getActivity());
         mAdView.setAdUnitId("ca-app-pub-8489476546541939/9417871582");
         //mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
@@ -49,6 +50,7 @@ public class FirstFragment extends Fragment {
 
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        */
 
         return binding.getRoot();
 

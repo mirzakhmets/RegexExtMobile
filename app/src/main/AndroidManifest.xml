@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.msdevelopers.regexextmobile">
 
+    <!--
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    -->
 
     <application
         android:allowBackup="true"
@@ -24,9 +26,11 @@
             </intent-filter>
         </activity>
 
+        <!--
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-8489476546541939~1212627249"/>
+        -->
     </application>
 
 </manifest>

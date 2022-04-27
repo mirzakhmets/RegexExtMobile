@@ -7,18 +7,18 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
+//import androidx.navigation.fragment.NavHostFragment;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
+//import com.google.android.gms.ads.AdRequest;
+//import com.google.android.gms.ads.AdSize;
+//import com.google.android.gms.ads.AdView;
 import com.msdevelopers.regexextmobile.databinding.FragmentSecondBinding;
 
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
 
-    private AdView mAdView;
+    //private AdView mAdView;
 
     @Override
     public View onCreateView(
@@ -28,6 +28,7 @@ public class SecondFragment extends Fragment {
 
         binding = FragmentSecondBinding.inflate(inflater, container, false);
 
+        /*
         mAdView = new AdView(getActivity());
         mAdView.setAdUnitId("ca-app-pub-8489476546541939/9417871582");
         //mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
@@ -37,6 +38,7 @@ public class SecondFragment extends Fragment {
 
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        */
 
         return binding.getRoot();
 
