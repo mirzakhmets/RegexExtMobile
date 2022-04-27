@@ -1,7 +1,5 @@
 package com.regexplus.automaton.dfa;
 
-import android.util.Log;
-
 import com.regexplus.automaton.base.StateAnd;
 import com.regexplus.automaton.base.StateMinus;
 import com.regexplus.automaton.common.IEdge;
@@ -122,21 +120,16 @@ public class DeterministicAutomaton {
 
         int finalIterations = 0;
 
-        //this.start.matches = new ArrayList<>();
-        //this.start.matches().add(new Match(stream, stream.position()));
-
-        //stack.push(this.start);
+        stack.push(this.start);
 
         do {
-
             if (this.start.visitIndex != DeterministicState.VISIT_INDEX) {
                 this.start.visitIndex = DeterministicState.VISIT_INDEX;
 
-                stack.push(this.start);
+                //stack.push(this.start);
 
                 this.start.matches = new ArrayList<>();
                 this.start.matches().add(new Match(stream, stream.position()));
-                //((Match)this.start.matches().get(0)).setStart(stream.position());
             }
 
         //while (!stream.atEnd()) {
@@ -152,44 +145,18 @@ public class DeterministicAutomaton {
                 }
 
                 if (nextState != null) {
-                    /*
-                    if (nextState.visitIndex != DeterministicState.VISIT_INDEX) {
-                        nextState.setMatches(state.matches());
-                    }
-                    */
-
                     if (nextState.visitIndex != DeterministicState.VISIT_INDEX) {
                         nextState.visitIndex = DeterministicState.VISIT_INDEX;
 
                         current.add(nextState);
 
                         nextState.setMatches(state.matches());
-                        //nextState.matches = state.matches;
 
-                        if (Match.isBetter(state.matches(), nextState.matches())) {
-                            //nextState.setMatches(state.matches());
 
-                            /*
-                            nextState.matches = new ArrayList<>();
 
-                            for (IMatch m: state.matches()) {
-                                nextState.matches.add(m.copy());
-                            }*/
-
-                            //nextState.matches = state.matches;
-                        }
-
-                        //nextState.matches = state.matches;
 
                         if (nextState.isFinal) {
-                            if (nextState.matches().get(0).end() == -1) {
-                                nextState.matches().get(0).setEnd(stream.position() + 1);
-                            } else {
-                                //nextState.matches = state.matches;
-                                //nextState.setMatches(state.matches());
-
-                            //    nextState.matches().get(0).setEnd(stream.position() + 1);
-                            }
+                            nextState.matches().get(0).setEnd(stream.position() + 1);
 
                             if (Match.isBetter(nextState.matches(), bestMatches)) {
                                 //bestMatches = nextState.matches();
@@ -200,27 +167,18 @@ public class DeterministicAutomaton {
                                 for (IMatch m: nextState.matches()) {
                                     bestMatches.add(m.copy());
                                 }
-                                //bestMatches = nextState.matches();
                             }
 
-                            nextState.matches().get(0).setEnd(-1);
-
-                            //nextState.matches = this.start.matches();
+                            //nextState.matches().get(0).setEnd(-1);
                         }
-                    } else {
-                        //nextState.setMatches(state.matches());
-                        //nextState.matches = state.matches;
-                        if (Match.isBetter(state.matches(), nextState.matches())) {
-                            nextState.setMatches(state.matches());
+                    } else if (Match.isBetter(state.matches(), nextState.matches())) {
+                        nextState.setMatches(state.matches());
 
-                            /*
-                            nextState.matches = new ArrayList<>();
 
-                            for (IMatch m: state.matches()) {
-                                nextState.matches.add(m.copy());
-                            }*/
+                        nextState.matches = new ArrayList<>();
 
-                            //nextState.matches = state.matches;
+                        for (IMatch m: state.matches()) {
+                            nextState.matches.add(m.copy());
                         }
                     }
 
@@ -237,6 +195,10 @@ public class DeterministicAutomaton {
                     }*/
                 }
             }
+
+            stack.push(this.start);
+
+            Collections.reverse(current);
 
             for (DeterministicState s: current) {
                 stack.push(s);
