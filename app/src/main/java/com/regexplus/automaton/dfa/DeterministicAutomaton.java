@@ -163,8 +163,8 @@ public class DeterministicAutomaton {
 
                         current.add(nextState);
 
-                        //nextState.setMatches(state.matches());
-                        nextState.matches = state.matches;
+                        nextState.setMatches(state.matches());
+                        //nextState.matches = state.matches;
 
                         if (Match.isBetter(state.matches(), nextState.matches())) {
                             //nextState.setMatches(state.matches());
@@ -185,8 +185,8 @@ public class DeterministicAutomaton {
                             if (nextState.matches().get(0).end() == -1) {
                                 nextState.matches().get(0).setEnd(stream.position() + 1);
                             } else {
-                                nextState.matches = state.matches;
-                            //    nextState.setMatches(state.matches());
+                                //nextState.matches = state.matches;
+                                //nextState.setMatches(state.matches());
 
                             //    nextState.matches().get(0).setEnd(stream.position() + 1);
                             }
@@ -203,15 +203,15 @@ public class DeterministicAutomaton {
                                 //bestMatches = nextState.matches();
                             }
 
-                            //nextState.matches().get(0).setEnd(-1);
+                            nextState.matches().get(0).setEnd(-1);
 
-                            nextState.matches = this.start.matches();
+                            //nextState.matches = this.start.matches();
                         }
                     } else {
                         //nextState.setMatches(state.matches());
                         //nextState.matches = state.matches;
                         if (Match.isBetter(state.matches(), nextState.matches())) {
-                            //nextState.setMatches(state.matches());
+                            nextState.setMatches(state.matches());
 
                             /*
                             nextState.matches = new ArrayList<>();
@@ -220,7 +220,7 @@ public class DeterministicAutomaton {
                                 nextState.matches.add(m.copy());
                             }*/
 
-                            nextState.matches = state.matches;
+                            //nextState.matches = state.matches;
                         }
                     }
 
