@@ -214,7 +214,8 @@ public class DeterministicState {
         int result = 0;
 
         for (State state: this.states) {
-            result = (result << 4) ^ state.getIndex();
+            result = (result << 12) ^ state.getIndex() ^ (result >> 20);
+            //result = (result * 257 + state.getIndex()) % 100001;
         }
 
         return result;

@@ -1,5 +1,6 @@
 package com.regexplus.parser;
 
+//import com.regexplus.Main;
 import com.regexplus.parser.node.base.*;
 import com.regexplus.parser.node.common.*;
 
@@ -98,9 +99,9 @@ public class Parser {
 
                 this.getNext();
                 result = new NodeRepeat(result, NodeRepeatType.STAR);
+                break;
 
                 //result = ParseLetter();
-                break;
             }
             case '+': {
                 this.getNext();
@@ -179,7 +180,15 @@ public class Parser {
                 INode right = this.ParseChoice();
 
                 if (right != null) {
-                    return new NodeChoice(left, right);
+                    //if (Main.DETERMINISTIC) {
+                    //    return new NodeChoice(left, right);
+                    //}
+
+                    INode notLeft = new NodeNot(left);
+                    INode notRight = new NodeNot(right);
+                    INode and = new NodeAnd(notLeft, notRight);
+
+                    return new NodeNot(and);
                 }
             }
         }

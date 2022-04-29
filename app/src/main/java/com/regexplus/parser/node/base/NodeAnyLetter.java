@@ -1,6 +1,7 @@
 package com.regexplus.parser.node.base;
 
 import com.regexplus.automaton.base.EdgeAnyLetter;
+import com.regexplus.automaton.base.EdgeEmpty;
 import com.regexplus.automaton.common.IState;
 import com.regexplus.parser.node.common.INode;
 import com.regexplus.parser.node.common.NodeType;
@@ -35,6 +36,16 @@ public class NodeAnyLetter extends Node {
     @Override
     public void expand(IState[] start, IState[] finish) {
         super.expand(start, finish);
-        new EdgeAnyLetter(start[0], finish[0]);
+
+        IState[] sta = newEmptyState();
+        IState[] stb = newEmptyState();
+
+        //new EdgeAnyLetter(start[0], finish[0]);
+
+        new EdgeAnyLetter(sta[0], stb[0]);
+
+        new EdgeEmpty(start[0], sta[0]);
+
+        new EdgeEmpty(stb[0], finish[0]);
     }
 }

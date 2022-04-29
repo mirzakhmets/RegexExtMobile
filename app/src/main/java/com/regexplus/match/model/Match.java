@@ -33,10 +33,6 @@ public class Match implements IMatch {
         this.end = end;
     }
 
-    public void setStart(int start) {
-        this.start = start;
-    }
-
     public boolean matches() {
         return this.end != NO_MATCH;
     }
@@ -60,6 +56,10 @@ public class Match implements IMatch {
         if (this.end != -1 && match.end == -1) {
             return true;
         }*/
+
+        if (this.end != -1 && match.end == -1) {
+            return true;
+        }
 
         if (this.start < match.start) {
             return true;

@@ -1,5 +1,6 @@
 package com.regexplus.parser.node.base;
 
+import com.regexplus.automaton.base.EdgeEmpty;
 import com.regexplus.automaton.common.IState;
 import com.regexplus.parser.node.common.INode;
 import com.regexplus.parser.node.common.NodeType;
@@ -22,7 +23,18 @@ public class NodeConcat extends NodePaired {
 
         IState[] a = this.newEmptyState();
 
-        ((Node) this.left).expand(start, a);
-        ((Node) this.right).expand(a, finish);
+        IState[] b = newEmptyState();
+        IState[] c = newEmptyState();
+        IState[] d = newEmptyState();
+
+        //((Node) this.left).expand(start, a);
+        //((Node) this.right).expand(a, finish);
+
+        ((Node) this.left).expand(a, b);
+        ((Node) this.right).expand(c, d);
+
+        new EdgeEmpty(start[0], a[0]);
+        new EdgeEmpty(b[0], c[0]);
+        new EdgeEmpty(d[0], finish[0]);
     }
 }

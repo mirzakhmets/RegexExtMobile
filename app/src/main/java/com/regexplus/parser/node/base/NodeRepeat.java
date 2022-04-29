@@ -78,12 +78,8 @@ public class NodeRepeat extends Node {
                 new EdgeEmpty(b[0], a[0]);
                 break;
             }
-            case PLUS:
-                new EdgeEmpty(b[0], a[0]);
-                break;
-            case QUESTION:
-                new EdgeEmpty(a[0], b[0]);
-                break;
+            case PLUS: new EdgeEmpty(b[0], a[0]); break;
+            case QUESTION: new EdgeEmpty(a[0], b[0]); break;
         }
 
         new EdgeEmpty(b[0], finish[0]);
